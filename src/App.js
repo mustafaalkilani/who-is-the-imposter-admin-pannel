@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import FormUploader from "./componnet/FormUploader";
-import CatgaroyUploader from './componnet/CatgaroyUploader';
 
 // Initialize Firebase with your Firebase config
 firebase.initializeApp({
@@ -15,27 +14,10 @@ firebase.initializeApp({
 });
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState("formUploader");
-
-  const renderPage = () => {
-    if (currentPage === "formUploader") {
-      return <FormUploader />;
-    } else if (currentPage === "catgaroyUploader") {
-      return <CatgaroyUploader />;
-    }
-  };
-
-  const goToNextPage = () => {
-    setCurrentPage("catgaroyUploader");
-  };
-
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Form Uploader</h1>
-      {renderPage()}
-      {currentPage === "formUploader" && (
-        <button onClick={goToNextPage} style={styles.nextButton}>Next Page</button>
-      )}
+      <FormUploader />
     </div>
   );
 };

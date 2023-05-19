@@ -4,8 +4,7 @@ import "firebase/compat/firestore";
 import { MyContext } from "./MyContext";
 const CatgaroyUploader = () => {
   const [items, setItems] = useState("");
-  const { value } = useContext(MyContext);
-  const { catgoryTitle } = value;
+  const { catgoryTitle } = useContext(MyContext);
   console.log(catgoryTitle);
   const handleUpload = () => {
     const firestore = firebase.firestore();

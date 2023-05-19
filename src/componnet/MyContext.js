@@ -10,15 +10,9 @@ const MyContext = createContext({
 const MyContextProvider = ({ children }) => {
   const [catgoryTitle, setCatgoryTitle] = useState("");
 
-  // Define any functions or state variables you want to expose
-
-  const updateData = (newData) => {
-    setCatgoryTitle(newData);
-  };
-
   // Provide the context value to the children components
   const value = { catgoryTitle, setCatgoryTitle };
-  return <MyContext.Provider value={{ value }}>{children}</MyContext.Provider>;
+  return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
 };
 
 export { MyContext, MyContextProvider };
